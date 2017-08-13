@@ -1,0 +1,96 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Custom::LexSlotType sample template",
+  "Parameters": {
+    "LexSlotTypeCustomResourceLambdaName": {
+      "Type": "String",
+      "Default": "cfn-lex-slot-type-0-1-0",
+      "Description": "The name of the Lex Slot Type Lambda you deployed to test this stack."
+    },
+    "SlotTypeName": {
+      "Type": "String",
+      "Default": "Foo"
+    },
+    "SlotTypeEnumeratedValue1": {
+      "Type": "String",
+      "Default": "bar"
+    },
+    "SlotTypeEnumeratedValue2": {
+      "Type": "String",
+      "Default": "baz"
+    }
+  },
+  "Resources": {
+    "ExampleSlotType": {
+      "Type": "Custom::LexSlotType",
+      "Properties": {
+        "ServiceToken": {
+          "Fn::Join": [
+            ":",
+            [
+              "arn",
+              "aws",
+              "lambda",
+              {
+                "Ref": "AWS::Region"
+              },
+              {
+                "Ref": "AWS::AccountId"
+              },
+              "function",
+              {
+                "Ref": "LexSlotTypeCustomResourceLambdaName"
+              }
+            ]
+          ]
+        },
+        "name": {
+          "Ref": "SlotTypeName"
+        },
+        "description": {
+          "Fn::Join": [
+            "",
+            [
+              "Test slot for a custom cloudformation resource called: ",
+              {
+                "Ref": "SlotTypeName"
+              }
+            ]
+          ]
+        },
+        "enumerationValues": [
+          {
+            "value": {
+              "Ref": "SlotTypeEnumeratedValue1"
+            }
+          },
+          {
+            "value": {
+              "Ref": "SlotTypeEnumeratedValue2"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Outputs": {
+    "SlotChecksum": {
+      "Description": "The checksum of the Lex slot for this stack.",
+      "Value": {
+        "Fn::GetAtt": [
+          "ExampleSlotType",
+          "checksum"
+        ]
+      }
+    },
+    "SlotVersion": {
+      "Description": "The version of the Lex slot for this stack.",
+      "Value": {
+        "Fn::GetAtt": [
+          "ExampleSlotType",
+          "version"
+        ]
+      }
+    }
+  }
+}
