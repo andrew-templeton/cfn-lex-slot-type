@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "Custom::LexSlotType sample template version 1.0.2",
+  "Description": "Custom::LexSlotType sample template version 1.0.3",
   "Parameters": {
     "SlotTypeName": {
       "Type": "String",
@@ -20,7 +20,7 @@
       "Type": "Custom::LexSlotType",
       "Properties": {
         "ServiceToken": {
-          "Fn::ImportValue": "cfn-lex-slot-type-1-0-2-ServiceToken"
+          "Fn::ImportValue": "cfn-lex-slot-type-1-0-3-ServiceToken"
         },
         "name": {
           "Ref": "SlotTypeName"
