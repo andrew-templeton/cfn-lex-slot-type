@@ -1,10 +1,10 @@
 {
   "name": "cfn-lex-slot-type",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "description": "AWS CloudFormation Custom Lambda Resource | AWS Lex Slot Type",
   "main": "index.js",
   "scripts": {
-    "cfn-lambda-deploy": "node ./node_modules/cfn-lambda/deploy.js"
+    "deploy": "node ./node_modules/cfn-lambda/deploy.js --regions us-east-1 --logs --public"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,6 @@
   },
   "homepage": "https://github.com/andrew-templeton/cfn-lex-slot-type#readme",
   "dependencies": {
-    "cfn-lambda": "1.0.1"
+    "cfn-lambda": "2.1.0"
   }
 }
