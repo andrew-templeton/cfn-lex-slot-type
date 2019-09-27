@@ -30,6 +30,6 @@
   },
   "homepage": "https://github.com/andrew-templeton/cfn-lex-slot-type#readme",
   "dependencies": {
-    "cfn-lambda": "2.1.0"
+    "cfn-lambda": "^4.0.0"
   }
 }
